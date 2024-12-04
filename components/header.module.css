@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+  }
+  .title {
+    padding: 20px;
+    font-size: 30px;
+    background-color: rgb(218, 168, 107);
+    text-align: center;
+    font-weight: bold;
+  }
