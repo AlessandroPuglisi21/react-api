@@ -1,6 +1,8 @@
 import { useState } from "react";
 import style from "../components/card.module.css";
 import initialPosts from "../components/posts";
+import axios from "axios";
+import { useEffect } from "react";
 
 const initialPostsData = {
   title: "",
@@ -11,11 +13,31 @@ const initialPostsData = {
   categories: ""
 };
 
+const API_BASE_URI = "http://localhost:3000/posts";
+
 export default function Card() {
-  const [posts, setPosts] = useState(initialPosts);
+  const [posts, setPosts] = useState([]);
   const [formData, setFormData] = useState(initialPostsData);
 
   const publishedPosts = posts.filter((post) => post.published);
+
+  function fetchPosts() {
+    axios
+      .get(API_BASE_URI)
+      .then((res) => {
+        console.log("posts res", res);
+        console.log('API Risposta: ', res.data)
+        setPosts(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  useEffect(() => {
+    fetchPosts(); 
+  }, []); 
+
 
   function handleFormData(e) {
     const key = e.target.name;
