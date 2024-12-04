@@ -12,7 +12,7 @@
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 400px ;
+  width: 600px ;
   text-align: left; 
   margin-top: 20px;
   box-sizing: border-box;
@@ -72,6 +72,19 @@ select{
   color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.title{
+  color: rgb(0, 0, 0);
+  text-align: center;
+  background-color: rgb(238, 207, 207);
+  padding: 10px;
+  border-radius: 5px;
+}
+.content{
+  background-color: rgb(238, 201, 153);
+  padding: 20px;
+  border-radius: 10px;
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {

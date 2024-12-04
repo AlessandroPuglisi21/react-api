@@ -5,12 +5,14 @@ import axios from "axios";
 import { useEffect } from "react";
 
 const initialPostsData = {
-  title: "",
-  image: "",
-  content: "",
-  // tags: "",
-  published: false,
-  categories: ""
+title:'',
+content:'',
+id:'',
+image: '',
+slug: '',
+published:'',
+categories:''
+//tags:[]
 };
 
 const API_BASE_URI = "http://localhost:3000/posts";
@@ -25,7 +27,7 @@ export default function Card() {
     axios
       .get(API_BASE_URI)
       .then((res) => {
-        console.log("posts res", res);
+        console.log("posts res =", res);
         console.log('API Risposta: ', res.data)
         setPosts(res.data);
       })
@@ -139,8 +141,9 @@ export default function Card() {
               type="select"
               placeholder="Inserisci il contenuto"> 
               <option value="" disabled>Seleziona una categoria</option>
-              <option value='tech'>Tech</option>
-              <option value='programmazione'>Programmazione</option>
+              <option value='dolci'>Dolci</option>
+              <option value='salato'>Salato</option>
+              <option value='pasta'>Pasta</option>
               </select>
           </div>
 
@@ -173,13 +176,13 @@ export default function Card() {
                 src={post.image || "/path-to-default-image.jpg"}
                 alt={post.title || "Post"}
               />
-              <h3>{post.title}</h3>
+              <h3 className={style.title}>{post.title}</h3>
               {/* <h5
                 style={{ color: post.tags.includes("HTML") ? "red" : "blue" }}
               >
                 Tag: {post.tags.join(", ")}
               </h5> */}
-              <p>Contenuto: {post.content}</p>
+              <p className={style.content}>Contenuto: {post.content}</p>
               <h5>Categoria: {post.categories}</h5>
               <div>
                 <button
